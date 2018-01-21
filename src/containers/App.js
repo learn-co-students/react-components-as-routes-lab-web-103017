@@ -10,12 +10,31 @@ import Directors from '../components/Directors';
 import Movies from '../components/Movies';
 
 
-const App = (props) => {
-  return (
-    <Router>
-      {/*{code here}*/}
-    </Router>
-  );
-};
 
-export default App
+class App extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      actors:'',
+      directors:"",
+      movies:""
+    }
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          <Route path="/" component={Home} />
+          <Route path="/movies" component={Movies} />
+          <Route path="/actors" component={Actors} />
+          <Route path="/directors" component={Directors} />
+        </div>
+      </Router>
+    );
+  };
+}
+export default App;
